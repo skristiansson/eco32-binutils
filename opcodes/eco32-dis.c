@@ -1,5 +1,5 @@
-#include <stdio.h>
 #include "sysdep.h"
+#include <stdio.h>
 #define STATIC_TABLE
 #define DEFINE_TABLE
 
