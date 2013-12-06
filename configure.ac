@@ -983,6 +983,9 @@ case "${target}" in
     ;;
   d30v-*-*)
     noconfigdirs="$noconfigdirs gdb"
+   eco32-*-*)
+    noconfigdirs="$noconfigdirs ${libgcj} gdb sim"
+    noconfigdirs="$noconfigdirs gprof"
     ;;
   fr30-*-elf*)
     noconfigdirs="$noconfigdirs gdb"

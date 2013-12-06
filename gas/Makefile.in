@@ -405,6 +405,7 @@ TARGET_CPU_CFILES = \
 	config/tc-d10v.c \
 	config/tc-d30v.c \
 	config/tc-dlx.c \
+	config/tc-eco32.c \
 	config/tc-epiphany.c \
 	config/tc-fr30.c \
 	config/tc-frv.c \
@@ -477,6 +478,7 @@ TARGET_CPU_HFILES = \
 	config/tc-d10v.h \
 	config/tc-d30v.h \
 	config/tc-dlx.h \
+	config/tc-eco32.h \
 	config/tc-epiphany.h \
 	config/tc-fr30.h \
 	config/tc-frv.h \
@@ -1075,6 +1077,13 @@ tc-dlx.obj: config/tc-dlx.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	source='config/tc-dlx.c' object='tc-dlx.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o tc-dlx.obj `if test -f 'config/tc-dlx.c'; then $(CYGPATH_W) 'config/tc-dlx.c'; else $(CYGPATH_W) '$(srcdir)/config/tc-dlx.c'; fi`
+
+tc-eco32.o: config/tc-eco32.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT tc-eco32.o -MD -MP -MF $(DEPDIR)/tc-eco32.Tpo -c -o tc-eco32.o `test -f 'config/tc-eco32.c' || echo '$(srcdir)/'`config/tc-eco32.c
+@am__fastdepCC_TRUE@	$(am__mv) $(DEPDIR)/tc-eco32.Tpo $(DEPDIR)/tc-eco32.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='config/tc-eco32.c' object='tc-eco32.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o tc-eco32.o `test -f 'config/tc-eco32.c' || echo '$(srcdir)/'`config/tc-eco32.c
 
 tc-epiphany.o: config/tc-epiphany.c
 @am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT tc-epiphany.o -MD -MP -MF $(DEPDIR)/tc-epiphany.Tpo -c -o tc-epiphany.o `test -f 'config/tc-epiphany.c' || echo '$(srcdir)/'`config/tc-epiphany.c

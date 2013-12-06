@@ -121,6 +121,8 @@ TARGET_LIBOPCODES_CFILES = \
 	d30v-dis.c \
 	d30v-opc.c \
 	dlx-dis.c \
+	eco32-dis.c \
+	eco32-opc.c \
 	epiphany-asm.c \
 	epiphany-desc.c \
 	epiphany-dis.c \
@@ -543,6 +545,12 @@ i386-gen.o: i386-gen.c i386-opc.h $(srcdir)/../include/opcode/i386.h \
 	$(INCDIR)/libiberty.h $(INCDIR)/opcode/i386.h $(INCDIR)/safe-ctype.h \
 	config.h i386-opc.h sysdep.h
 	$(COMPILE_FOR_BUILD) -c $(srcdir)/i386-gen.c
+
+eco32-dis.lo: eco32-dis.c sysdep.h config.h $(INCDIR)/ansidecl.h \
+	$(INCDIR)/opcode/eco32.h $(INCDIR)/dis-asm.h $(BFD_H) \
+	$(INCDIR)/ansidecl.h $(INCDIR)/symcat.h
+eco32-opc.lo: eco32-opc.c sysdep.h config.h $(INCDIR)/ansidecl.h \
+	$(INCDIR)/opcode/eco32.h
 
 $(srcdir)/i386-tbl.h: $(srcdir)/i386-init.h 
 	@echo $@

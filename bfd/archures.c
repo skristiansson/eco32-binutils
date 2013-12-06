@@ -539,6 +539,7 @@ extern const bfd_arch_info_type bfd_crx_arch;
 extern const bfd_arch_info_type bfd_d10v_arch;
 extern const bfd_arch_info_type bfd_d30v_arch;
 extern const bfd_arch_info_type bfd_dlx_arch;
+extern const bfd_arch_info_type bfd_eco32_arch;
 extern const bfd_arch_info_type bfd_epiphany_arch;
 extern const bfd_arch_info_type bfd_fr30_arch;
 extern const bfd_arch_info_type bfd_frv_arch;
@@ -628,6 +629,7 @@ static const bfd_arch_info_type * const bfd_archures_list[] =
     &bfd_d10v_arch,
     &bfd_d30v_arch,
     &bfd_dlx_arch,
+    &bfd_eco32_arch,
     &bfd_epiphany_arch,
     &bfd_fr30_arch,
     &bfd_frv_arch,

@@ -2105,6 +2105,8 @@ enum bfd_architecture
 #define bfd_mach_mn10300               300
 #define bfd_mach_am33          330
 #define bfd_mach_am33_2        332
+  bfd_arch_eco32,
+#define bfd_mach_eco32		1
   bfd_arch_fr30,
 #define bfd_mach_fr30          0x46523330
   bfd_arch_frv,
@@ -3740,6 +3742,12 @@ of the container.  */
 
 /* DLX relocs  */
   BFD_RELOC_DLX_JMP26,
+
+/* Eco32 Relocs */
+  BFD_RELOC_ECO32_METHOD_R16,
+  BFD_RELOC_ECO32_METHOD_H16,
+  BFD_RELOC_ECO32_METHOD_L16,
+  BFD_RELOC_ECO32_METHOD_R26,
 
 /* Renesas M16C/M32C Relocations.  */
   BFD_RELOC_M32C_HI8,

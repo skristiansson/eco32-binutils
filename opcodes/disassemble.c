@@ -36,6 +36,7 @@
 #define ARCH_d10v
 #define ARCH_d30v
 #define ARCH_dlx
+#define ARCH_eco32
 #define ARCH_epiphany
 #define ARCH_fr30
 #define ARCH_frv
@@ -234,6 +235,11 @@ disassembler (abfd)
 #ifdef ARCH_ip2k
     case bfd_arch_ip2k:
       disassemble = print_insn_ip2k;
+      break;
+#endif
+#ifdef ARCH_eco32
+    case bfd_arch_eco32:
+      disassemble = print_insn_eco32;
       break;
 #endif
 #ifdef ARCH_epiphany

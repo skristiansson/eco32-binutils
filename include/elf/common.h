@@ -314,6 +314,8 @@
    unofficial e_machine number should eventually ask registry@sco.com for
    an officially blessed number to be added to the list above.	*/
 
+#define EM_ECO32	0xEC05 /* THM Eco32 */
+
 /* Old version of Sparc v9, from before the ABI;
    This should be removed shortly.  */
 #define EM_OLD_SPARCV9		11

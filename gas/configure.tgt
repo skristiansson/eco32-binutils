@@ -170,6 +170,8 @@ case ${generic_target} in
   d30v-*-*)				fmt=elf ;;
   dlx-*-*)				fmt=elf ;;
 
+  eco32-*-*)				fmt=elf ;;
+
   epiphany-*-*)				fmt=elf ;;
 
   fr30-*-*)				fmt=elf ;;
