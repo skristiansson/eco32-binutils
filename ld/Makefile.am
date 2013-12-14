@@ -1036,7 +1036,7 @@ eelf32ebmipvxworks.c: $(srcdir)/emulparams/elf32ebmipvxworks.sh \
   $(srcdir)/emultempl/vxworks.em $(srcdir)/scripttempl/elf.sc ${GEN_DEPENDS}
 	${GENSCRIPTS} elf32ebmipvxworks "$(tdir_elf32ebmipvxworks)"
 eelf32eco32.c: $(srcdir)/emulparams/elf32eco32.sh \
-  $(ELF_DEPS) $(srcdir)/scripttempl/elf32eco32.sc ${GEN_DEPENDS}
+  $(ELF_DEPS) $(srcdir)/scripttempl/elf.sc ${GEN_DEPENDS}
 	${GENSCRIPTS} elf32eco32 "$(tdir_elf32eco32)"
 eelf32elmip.c: $(srcdir)/emulparams/elf32elmip.sh \
   $(srcdir)/emulparams/elf32lmip.sh $(srcdir)/emulparams/elf32bmip.sh \
