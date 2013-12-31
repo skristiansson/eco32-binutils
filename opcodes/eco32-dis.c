@@ -77,7 +77,7 @@ print_insn_eco32 (bfd_vma addr, struct disassemble_info *info)
 		case ECO32_J:
 		{
 			immediate = iword;
-			fpr (stream, "%s 0x%08X", eco32_instr.name,((bfd_vma) (addr+4)+(SEXT26(immediate)<<2)));
+			fpr (stream, "%s 0x%08x", eco32_instr.name,((bfd_vma) (addr+4)+(SEXT26(immediate)<<2)));
 			break;
 		}
 		case ECO32_R:
@@ -104,7 +104,7 @@ print_insn_eco32 (bfd_vma addr, struct disassemble_info *info)
 			 * rest of iword is now immediate
 			 */
 			immediate = (short)iword;
-			fpr (stream, "%s $%d,$%d,0x%08X", eco32_instr.name,src1,src2,((bfd_vma) (addr+4)+(SEXT26(immediate)<<2)));
+			fpr (stream, "%s $%d,$%d,0x%08x", eco32_instr.name,src1,src2,((bfd_vma) (addr+4)+(SEXT26(immediate)<<2)));
 			break;
 		case ECO32_RRH:
 		case ECO32_RRS:
@@ -118,19 +118,19 @@ print_insn_eco32 (bfd_vma addr, struct disassemble_info *info)
 			 * rest of iword is now immediate
 			 */
 			immediate = iword;
-			fpr (stream, "%s $%d,$%d,0x%04X", eco32_instr.name,dest,src1,immediate);
+			fpr (stream, "%s $%d,$%d,0x%04x", eco32_instr.name,dest,src1,immediate);
 		break;
 		case ECO32_RH:
 			dest=iword>>RHh_dest_reg;
 			iword ^= (dest<<RHh_dest_reg);
 			
-			fpr (stream, "%s $%d,0x%08X", eco32_instr.name,dest,iword);
+			fpr (stream, "%s $%d,0x%08x", eco32_instr.name,dest,iword);
 		break;
 		case ECO32_RHh:
 			dest=iword>>RHh_dest_reg;
 			iword ^= (dest<<RHh_dest_reg);
 			
-			fpr (stream, "%s $%d,0x%08X", eco32_instr.name,dest,iword<<16);
+			fpr (stream, "%s $%d,0x%08x", eco32_instr.name,dest,iword<<16);
 		break;
 		default:
 		fpr (stream, "%s ???", eco32_instr.name);
