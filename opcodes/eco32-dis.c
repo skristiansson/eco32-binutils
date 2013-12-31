@@ -75,9 +75,9 @@ print_insn_eco32 (bfd_vma addr, struct disassemble_info *info)
      break;
 
    case ECO32_J:
-     immediate = iword;
-     fpr (stream, "%s 0x%08x", eco32_instr.name,
-	  ((bfd_vma) (addr+4)+(SEXT26(immediate)<<2)));
+     fpr (stream, "%s ", eco32_instr.name);
+     addr = (addr + 4) + (SEXT26(iword) << 2);
+     (*info->print_address_func) (addr, info);
      break;
 
    case ECO32_R:
@@ -102,10 +102,10 @@ print_insn_eco32 (bfd_vma addr, struct disassemble_info *info)
 
      src2=iword>>RRB_src2;
      iword ^= (dest<<RRB_src2);
-     /* rest of iword is now immediate */
-     immediate = (short)iword;
-     fpr (stream, "%s $%d,$%d,0x%08x", eco32_instr.name,src1,src2,
-	  ((bfd_vma) (addr+4)+(SEXT26(immediate)<<2)));
+
+     fpr (stream, "%s $%d,$%d,", eco32_instr.name,src1,src2);
+     addr = (addr + 4) + (SEXT26((short)iword) << 2);
+     (*info->print_address_func) (addr, info);
      break;
 
    case ECO32_RRH:
