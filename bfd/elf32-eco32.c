@@ -76,7 +76,7 @@ HOWTO (R_ECO32_R16,	/* type */
 	16,	/* bitsize */
 	TRUE,	/* pc_relative */
 	0,	/* bitpos */
-	complain_overflow_dont, /* complain_on_overflow */
+	complain_overflow_signed, /* complain_on_overflow */
 	bfd_elf_generic_reloc, /* special_function */
 	"METHOD_R16",	/* name */
 	FALSE,	/* partial_inplace */
@@ -91,7 +91,7 @@ HOWTO (R_ECO32_R26,	/* type */
 	26,	/* bitsize */
 	TRUE,	/* pc_relative */
 	0,	/* bitpos */
-	complain_overflow_dont, /* complain_on_overflow */
+	complain_overflow_signed, /* complain_on_overflow */
 	bfd_elf_generic_reloc, /* special_function */
 	"METHOD_R26",	/* name */
 	FALSE,	/* partial_inplace */
