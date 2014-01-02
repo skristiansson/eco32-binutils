@@ -176,7 +176,7 @@ md_assemble (char *str)
 							 (p-frag_now->fr_literal),			/* Where in that frag?  */
 							 (eco32_insn_byte),			/* 1, 2, or 4 usually.  */
 							 &arg,		/* Expression.  */
-							 FALSE,			/* TRUE if PC-relative relocation.  */
+							 TRUE,			/* TRUE if PC-relative relocation.  */
 							 BFD_RELOC_ECO32_METHOD_R26		/* Relocation type.  */);
 					md_number_to_chars(p,iword,eco32_insn_byte);
 				break;
@@ -673,7 +673,7 @@ md_assemble (char *str)
 							 (p-frag_now->fr_literal),			/* Where in that frag?  */
 							 (eco32_insn_byte),			/* 1, 2, or 4 usually.  */
 							 &arg,		/* Expression.  */
-							 FALSE,			/* TRUE if PC-relative relocation.  */
+							 TRUE,			/* TRUE if PC-relative relocation.  */
 							 BFD_RELOC_ECO32_METHOD_R16		/* Relocation type.  */);
 					md_number_to_chars(p,iword,eco32_insn_byte);
 				break;
@@ -802,11 +802,30 @@ md_show_usage (FILE *stream ATTRIBUTE_UNUSED)
 }
 
 /* Apply a fixup to the object file. */
-
 void
-md_apply_fix (fixS *fixP ATTRIBUTE_UNUSED, valueT * valP ATTRIBUTE_UNUSED, segT seg ATTRIBUTE_UNUSED)
+md_apply_fix (fixS *fixP, valueT *val, segT seg ATTRIBUTE_UNUSED)
 {
- /* Empty forever. */
+  unsigned int iword;
+  bfd_byte *buf = (bfd_byte *) (fixP->fx_where + fixP->fx_frag->fr_literal);
+
+  if ((fixP->fx_addsy == (symbolS *) NULL) && !fixP->fx_pcrel)
+    {
+      /* Apply fixups to pc relative relocations (i.e. jumps) to symbols that
+	 can be resolved now (typically local symbols). */
+      iword = (buf[0] << 24) | (buf[1] << 16) | (buf[2] << 8) | buf[3];
+      if (fixP->fx_r_type == BFD_RELOC_ECO32_METHOD_R16)
+	{
+	  iword |= ((*val-4) >> 2) & 0x0000ffff;
+	  md_number_to_chars ((char *) buf, iword, eco32_insn_byte);
+	  fixP->fx_done = 1;
+	}
+      else if (fixP->fx_r_type == BFD_RELOC_ECO32_METHOD_R26)
+	{
+	  iword |= ((*val-4) >> 2) & 0x03ffffff;
+	  md_number_to_chars ((char *) buf, iword, eco32_insn_byte);
+	  fixP->fx_done = 1;
+	}
+    }
 }
 
 /* Put number into target byte order. */
