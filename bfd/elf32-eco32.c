@@ -31,7 +31,7 @@ HOWTO (R_ECO32_W32,	/* type */
 	32,	/* bitsize */
 	FALSE,	/* pc_relative */
 	0,	/* bitpos */
-	complain_overflow_dont, /* complain_on_overflow */
+	complain_overflow_unsigned, /* complain_on_overflow */
 	bfd_elf_generic_reloc, /* special_function */
 	"METHOD_W32",	/* name */
 	FALSE,	/* partial_inplace */
