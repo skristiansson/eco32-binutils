@@ -64,8 +64,8 @@ print_insn_eco32 (bfd_vma addr, struct disassemble_info *info)
 
  if(eco32_instr.opcode == OP_BAD)
    {
-     printf("unknown instruction");
-     return -1;
+     fpr (stream, "*unknown*");
+     return eco32_insn_byte;
    }
 
  switch(eco32_instr.itype)
