@@ -846,12 +846,12 @@ tc_gen_reloc (asection *section ATTRIBUTE_UNUSED, fixS *fixP)
    *  bfd_elf_generic_reloc for rewrite  */
   switch (fixP->fx_r_type)
     {
-	case BFD_RELOC_ECO32_METHOD_R26:
+    case BFD_RELOC_ECO32_METHOD_R26:
     case BFD_RELOC_ECO32_METHOD_R16:
-		fixP->fx_offset -=1; 
-		/* This hack fixes the off-by-one error in branches and jumps
-		 * as long as it is working it will be kept this way
-		 * looking into how to fix this isn't currently a priority */
+      /* This hack fixes the off-by-one error in branches and jumps
+       * as long as it is working it will be kept this way
+       * looking into how to fix this isn't currently a priority */
+      fixP->fx_offset -= eco32_insn_byte;
     case BFD_RELOC_32:
     case BFD_RELOC_ECO32_METHOD_L16:
     case BFD_RELOC_ECO32_METHOD_H16:
