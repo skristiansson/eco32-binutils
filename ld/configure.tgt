@@ -177,7 +177,9 @@ d30v-*-*)		targ_emul=d30velf; targ_extra_emuls="d30v_e d30v_o"
 			;;
 dlx-*-elf*)		targ_emul=elf32_dlx
 			;;
-eco32-*-*)		targ_emul=elf32eco32
+eco32-*-elf)		targ_emul=elf32eco32
+			;;
+eco32-*-linux*)		targ_emul=elf32eco32_linux
 			;;
 epiphany-*-elf)		targ_emul=elf32epiphany
 			targ_extra_emuls="elf32epiphany_4x4"

@@ -220,6 +220,7 @@ ALL_EMULATION_SOURCES = \
 	eelf32cr16c.c \
 	eelf32crx.c \
 	eelf32eco32.c \
+	eelf32eco32_linux.c \
 	eelf32epiphany.c \
 	eelf32epiphany_4x4.c \
 	eelf32fr30.c \
@@ -1038,6 +1039,9 @@ eelf32ebmipvxworks.c: $(srcdir)/emulparams/elf32ebmipvxworks.sh \
 eelf32eco32.c: $(srcdir)/emulparams/elf32eco32.sh \
   $(ELF_DEPS) $(srcdir)/scripttempl/elf.sc ${GEN_DEPENDS}
 	${GENSCRIPTS} elf32eco32 "$(tdir_elf32eco32)"
+eelf32eco32_linux.c: $(srcdir)/emulparams/elf32eco32_linux.sh \
+  $(ELF_DEPS) $(srcdir)/scripttempl/elf.sc ${GEN_DEPENDS}
+	${GENSCRIPTS} elf32eco32_linux "$(tdir_elf32eco32_linux)"
 eelf32elmip.c: $(srcdir)/emulparams/elf32elmip.sh \
   $(srcdir)/emulparams/elf32lmip.sh $(srcdir)/emulparams/elf32bmip.sh \
   $(ELF_DEPS) $(srcdir)/emultempl/mipself.em $(srcdir)/scripttempl/elf.sc \
